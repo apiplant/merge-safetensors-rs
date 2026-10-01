@@ -1,0 +1,12 @@
+Package: merge-safetensors-rs
+Version: @VERSION@
+Section: utils
+Priority: optional
+Architecture: @ARCH@
+Maintainer: apiplant <releases@apiplant.com>
+Installed-Size: @INSTALLED_SIZE@
+Homepage: https://github.com/apiplant/merge-safetensors-rs
+Description: Merge sharded .safetensors files into one, streaming
+ merge-safetensors merges sharded .safetensors files into a single file,
+ driven by a *.safetensors.index.json, streaming tensor bytes shard-to-
+ file so peak memory stays bounded regardless of model size.

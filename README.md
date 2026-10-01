@@ -60,3 +60,15 @@ each other).
 cargo test      # integration tests build synthetic shards in-process, no Python needed
 cargo build --release
 ```
+
+## Install
+
+Prebuilt packages (merge-safetensors) for macOS (Apple Silicon), Linux x86_64 and Linux arm64:
+
+```bash
+brew tap apiplant/tap && brew install apiplant/tap/merge-safetensors-rs      # macOS, Linux
+sudo apt install merge-safetensors-rs      # Debian/Ubuntu, after adding apt.apiplant.com
+sudo pacman -S merge-safetensors-rs        # Arch, after adding apiplant.github.io/pacman
+```
+
+Setup commands for the apt and pacman repositories, the plain archives and the release process are in [`packaging/README.md`](packaging/README.md). Release archives are on the [releases page](https://github.com/apiplant/merge-safetensors-rs/releases).
