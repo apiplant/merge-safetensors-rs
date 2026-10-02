@@ -61,6 +61,24 @@ cargo test      # integration tests build synthetic shards in-process, no Python
 cargo build --release
 ```
 
+## Use as a library
+
+The crate is published as `merge-safetensors`; the library is `merge_safetensors`.
+
+```toml
+[dependencies]
+merge-safetensors = "0.2"
+```
+
+```rust
+use merge_safetensors::{run, MergeOptions};
+
+let report = run(MergeOptions::new("model.safetensors.index.json", "merged.safetensors"))?;
+println!("merged {} tensors from {} shards, {} bytes", report.num_tensors, report.num_shards, report.bytes_written);
+```
+
+Set `show_progress` / `verbose` on `MergeOptions` for the CLI's progress bar and logging.
+
 ## Install
 
 Prebuilt packages (merge-safetensors) for macOS (Apple Silicon), Linux x86_64 and Linux arm64:

@@ -1,8 +1,13 @@
 [package]
 name = "merge-safetensors"
-version = "0.2.1"
+version = "0.2.2"
 edition = "2021"
 description = "Merge sharded .safetensors files into one, driven by a *.safetensors.index.json"
+repository = "https://github.com/apiplant/merge-safetensors-rs"
+readme = "README.md"
+keywords = ["safetensors","merge","shards","machine-learning"]
+categories = ["science","command-line-utilities"]
+exclude = ["/packaging/","/.github/"]
 license = "MIT"
 
 [lib]

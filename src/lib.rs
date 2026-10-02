@@ -12,6 +12,14 @@
 //! 3. Write the merged header, then stream each tensor's bytes straight from
 //!    its source shard file to the output file through a small fixed-size
 //!    buffer — no shard is ever fully loaded into memory.
+//!
+//! ```no_run
+//! use merge_safetensors::{run, MergeOptions};
+//!
+//! let report = run(MergeOptions::new("model.safetensors.index.json", "merged.safetensors"))?;
+//! println!("merged {} tensors", report.num_tensors);
+//! # anyhow::Ok(())
+//! ```
 
 use std::collections::{BTreeMap, HashMap};
 use std::fs::File;
@@ -54,6 +62,14 @@ pub struct MergeOptions {
     pub output: PathBuf,
     pub verbose: bool,
     pub show_progress: bool,
+}
+
+impl MergeOptions {
+    /// Merge the shards listed in `index_file` (a `*.safetensors.index.json`) into `output`, quietly:
+    /// no progress bar, no debug logging. Set `show_progress` / `verbose` for the CLI's behaviour.
+    pub fn new(index_file: impl Into<PathBuf>, output: impl Into<PathBuf>) -> Self {
+        Self { index_file: index_file.into(), output: output.into(), verbose: false, show_progress: false }
+    }
 }
 
 pub struct MergeReport {
