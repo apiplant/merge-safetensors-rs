@@ -45,7 +45,7 @@ jobs:
             args: "--bins"
             bins: "merge-safetensors"
           - target: aarch64-apple-darwin
-            os: macos-14
+            os: macos-15
             args: "--bins"
             bins: "merge-safetensors"
     steps:
