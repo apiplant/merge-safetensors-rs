@@ -31,7 +31,7 @@ shards' file handles — independent of model size.
 ```sh
 cargo build --release
 
-./target/release/merge-safetensors model.safetensors.index.json merged.safetensors
+merge-safetensors model.safetensors.index.json merged.safetensors
 ```
 
 ```
